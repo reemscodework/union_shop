@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
+import 'package:union_shop/about_us.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -22,7 +24,7 @@ class UnionShopApp extends StatelessWidget {
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
       // In your browser, try this link: http://localhost:49856/#/product
-      routes: {'/product': (context) => const ProductPage()},
+      routes: {'/product': (context) => const ProductPage(), '/about': (context) => const AboutUsPage()},
     );
   }
 }
@@ -98,6 +100,15 @@ class HomeScreen extends StatelessWidget {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, '/about');
+                                  },
+                                  child: const Text(
+                                    'About Us',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                ),
                                 IconButton(
                                   icon: const Icon(
                                     Icons.search,
@@ -180,7 +191,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: 0.7),
+                          color: Colors.black.withOpacity(0.7),
                         ),
                       ),
                     ),
@@ -295,7 +306,7 @@ class HomeScreen extends StatelessWidget {
               color: Colors.grey[50],
               padding: const EdgeInsets.all(24),
               child: const Text(
-                'Placeholder Footer',
+                'Placeholder Footer edit me',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 16,

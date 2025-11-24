@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_us.dart';
+import 'package:union_shop/login_page.dart';
+import 'package:union_shop/sales_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -24,7 +26,12 @@ class UnionShopApp extends StatelessWidget {
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
       // In your browser, try this link: http://localhost:49856/#/product
-      routes: {'/product': (context) => const ProductPage(), '/about': (context) => const AboutUsPage()},
+      routes: {
+        '/product': (context) => const ProductPage(),
+        '/about': (context) => const AboutUsPage(),
+        '/login': (context) => const LoginPage(),
+        '/sales': (context) => const SalesPage(),
+      },
     );
   }
 }
@@ -102,6 +109,15 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 TextButton(
                                   onPressed: () {
+                                    Navigator.pushNamed(context, '/sales');
+                                  },
+                                  child: const Text(
+                                    'Sales',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {
                                     Navigator.pushNamed(context, '/about');
                                   },
                                   child: const Text(
@@ -133,7 +149,9 @@ class HomeScreen extends StatelessWidget {
                                     minWidth: 32,
                                     minHeight: 32,
                                   ),
-                                  onPressed: placeholderCallbackForButtons,
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, '/login');
+                                  },
                                 ),
                                 IconButton(
                                   icon: const Icon(
@@ -306,7 +324,7 @@ class HomeScreen extends StatelessWidget {
               color: Colors.grey[50],
               padding: const EdgeInsets.all(24),
               child: const Text(
-                'Placeholder Footer edit me',
+                'Placeholder Footer',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 16,

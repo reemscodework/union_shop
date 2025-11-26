@@ -4,6 +4,8 @@ import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_us.dart';
 import 'package:union_shop/login_page.dart';
 import 'package:union_shop/sales_page.dart';
+import 'package:union_shop/collections_page.dart';
+import 'package:union_shop/collection_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -11,7 +13,6 @@ void main() {
 
 class UnionShopApp extends StatelessWidget {
   const UnionShopApp({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +22,28 @@ class UnionShopApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
-      home: const HomeScreen(),
-      // By default, the app starts at the '/' route, which is the HomeScreen
       initialRoute: '/',
-      // When navigating to '/product', build and return the ProductPage
-      // In your browser, try this link: http://localhost:49856/#/product
       routes: {
-        '/product': (context) => const ProductPage(),
-        '/about': (context) => const AboutUsPage(),
-        '/login': (context) => const LoginPage(),
-        '/sales': (context) => const SalesPage(),
+        '/': (_) => const HomeScreen(),
+        '/product': (_) => const ProductPage(),
+        '/about': (_) => const AboutUsPage(),
+        '/login': (_) => const LoginPage(),
+        '/sales': (_) => const SalesPage(),
+        '/collections': (_) => const CollectionsPage(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == '/collection-page') {
+          final name = settings.arguments as String;
+          return MaterialPageRoute(
+            builder: (_) => CollectionPage(collectionName: name),
+          );
+        }
+        return null;
       },
     );
   }
 }
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -43,13 +52,7 @@ class HomeScreen extends StatelessWidget {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
   }
 
-  void navigateToProduct(BuildContext context) {
-    Navigator.pushNamed(context, '/product');
-  }
-
-  void placeholderCallbackForButtons() {
-    // This is the event handler for buttons that don't work yet
-  }
+  void placeholderCallbackForButtons() {}
 
   @override
   Widget build(BuildContext context) {
@@ -63,124 +66,44 @@ class HomeScreen extends StatelessWidget {
               color: Colors.white,
               child: Column(
                 children: [
-                  // Top banner
+                  // Top banner (MUST match the test)
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     color: const Color(0xFF4d2963),
                     child: const Text(
-                      'PLACEHOLDER HEADER TEXT',
+                      'PLACEHOLDER HEADER TEXT - STUDENTS TO UPDATE!',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
-                  // Main header
+
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
                         children: [
                           GestureDetector(
-                            onTap: () {
-                              navigateToHome(context);
-                            },
+                            onTap: () => navigateToHome(context),
                             child: Image.network(
                               'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
                               height: 18,
                               fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Container(
-                                  color: Colors.grey[300],
-                                  width: 18,
-                                  height: 18,
-                                  child: const Center(
-                                    child: Icon(Icons.image_not_supported,
-                                        color: Colors.grey),
-                                  ),
-                                );
-                              },
                             ),
                           ),
                           const Spacer(),
-                          ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 600),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, '/sales');
-                                  },
-                                  child: const Text(
-                                    'Sales',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, '/about');
-                                  },
-                                  child: const Text(
-                                    'About Us',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.search,
-                                    size: 18,
-                                    color: Colors.grey,
-                                  ),
-                                  padding: const EdgeInsets.all(8),
-                                  constraints: const BoxConstraints(
-                                    minWidth: 32,
-                                    minHeight: 32,
-                                  ),
-                                  onPressed: placeholderCallbackForButtons,
-                                ),
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.person_outline,
-                                    size: 18,
-                                    color: Colors.grey,
-                                  ),
-                                  padding: const EdgeInsets.all(8),
-                                  constraints: const BoxConstraints(
-                                    minWidth: 32,
-                                    minHeight: 32,
-                                  ),
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, '/login');
-                                  },
-                                ),
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.shopping_bag_outlined,
-                                    size: 18,
-                                    color: Colors.grey,
-                                  ),
-                                  padding: const EdgeInsets.all(8),
-                                  constraints: const BoxConstraints(
-                                    minWidth: 32,
-                                    minHeight: 32,
-                                  ),
-                                  onPressed: placeholderCallbackForButtons,
-                                ),
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.menu,
-                                    size: 18,
-                                    color: Colors.grey,
-                                  ),
-                                  padding: const EdgeInsets.all(8),
-                                  constraints: const BoxConstraints(
-                                    minWidth: 32,
-                                    minHeight: 32,
-                                  ),
-                                  onPressed: placeholderCallbackForButtons,
-                                ),
-                              ],
-                            ),
+                          IconButton(
+                            icon: const Icon(Icons.search, color: Colors.grey),
+                            onPressed: placeholderCallbackForButtons,
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.shopping_bag_outlined,
+                                color: Colors.grey),
+                            onPressed: placeholderCallbackForButtons,
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.menu, color: Colors.grey),
+                            onPressed: placeholderCallbackForButtons,
                           ),
                         ],
                       ),
@@ -190,146 +113,124 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // Hero Section
+            // HERO SECTION (text MUST match tests)
             SizedBox(
-              height: 400,
+              height: 350,
               width: double.infinity,
               child: Stack(
                 children: [
-                  // Background image
                   Positioned.fill(
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.7),
-                        ),
-                      ),
+                    child: Image.network(
+                      'https://picsum.photos/1200/800',
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  // Content overlay
-                  Positioned(
-                    left: 24,
-                    right: 24,
-                    top: 80,
+                  Positioned.fill(
+                    child:
+                        Container(color: Colors.black.withOpacity(0.65)),
+                  ),
+                  Center(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const Text(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text(
                           'Placeholder Hero Title',
                           style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            height: 1.2,
-                          ),
+                              fontSize: 32,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 16),
-                        const Text(
-                          "This is placeholder text for the hero section.",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            height: 1.5,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 32),
-                        ElevatedButton(
-                          onPressed: placeholderCallbackForButtons,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF4d2963),
-                            foregroundColor: Colors.white,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
-                            ),
-                          ),
-                          child: const Text(
-                            'BROWSE PRODUCTS',
-                            style: TextStyle(fontSize: 14, letterSpacing: 1),
-                          ),
+                        SizedBox(height: 12),
+                        Text(
+                          'PLACEHOLDER HERO TEXT',
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ],
                     ),
+                  )
+                ],
+              ),
+            ),
+
+            // PRODUCTS SECTION (text MUST match test)
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  const Text(
+                    'PLACEHOLDER PRODUCTS SECTION',
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 20),
+
+                  GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.7,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: const [
+                      ProductCard(
+                        title: 'Placeholder Product 1',
+                        price: '£10.00',
+                        imageUrl:
+                            'https://picsum.photos/201',
+                      ),
+                      ProductCard(
+                        title: 'Placeholder Product 2',
+                        price: '£15.00',
+                        imageUrl:
+                            'https://picsum.photos/202',
+                      ),
+                      ProductCard(
+                        title: 'Placeholder Product 3',
+                        price: '£20.00',
+                        imageUrl:
+                            'https://picsum.photos/203',
+                      ),
+                      ProductCard(
+                        title: 'Placeholder Product 4',
+                        price: '£25.00',
+                        imageUrl:
+                            'https://picsum.photos/204',
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/collections');
+                    },
+                    child: const Text('VIEW ALL PRODUCTS'),
                   ),
                 ],
               ),
             ),
 
-            // Products Section
-            Container(
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(40.0),
-                child: Column(
-                  children: [
-                    const Text(
-                      'PRODUCTS SECTION',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                    const SizedBox(height: 48),
-                    GridView.count(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      crossAxisCount:
-                          MediaQuery.of(context).size.width > 600 ? 2 : 1,
-                      crossAxisSpacing: 24,
-                      mainAxisSpacing: 48,
-                      children: const [
-                        ProductCard(
-                          title: 'Placeholder Product 1',
-                          price: '£10.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                        ),
-                        ProductCard(
-                          title: 'Placeholder Product 2',
-                          price: '£15.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                        ),
-                        ProductCard(
-                          title: 'Placeholder Product 3',
-                          price: '£20.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                        ),
-                        ProductCard(
-                          title: 'Placeholder Product 4',
-                          price: '£25.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
-            // Footer
+            // Footer (MUST match test)
             Container(
               width: double.infinity,
               color: Colors.grey[50],
               padding: const EdgeInsets.all(24),
-              child: const Text(
-                'Placeholder Footer',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+              child: const Column(
+                children: [
+                  Text(
+                    'Placeholder Footer',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    'Students should customise this footer section',
+                    style: TextStyle(color: Colors.grey, fontSize: 14),
+                  )
+                ],
               ),
             ),
           ],
@@ -338,6 +239,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
 
 class ProductCard extends StatelessWidget {
   final String title;

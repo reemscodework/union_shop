@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:union_shop/footer.dart';
 
 class AboutUsPage extends StatelessWidget {
   const AboutUsPage({super.key});
@@ -10,8 +10,15 @@ class AboutUsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('About Us'),
       ),
-      body: const Center(
-        child: Text('edit here'),
+      body: const Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Text('edit here'),
+            ),
+          ),
+          Footer(),
+        ],
       ),
     );
   }

@@ -4,6 +4,7 @@ import 'package:union_shop/about_us.dart';
 import 'package:union_shop/footer.dart';
 import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/login_page.dart';
+import 'package:union_shop/search_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -30,6 +31,7 @@ class UnionShopApp extends StatelessWidget {
         '/about': (context) => const AboutUsPage(),
         '/cart': (context) => const CartPage(),
         '/login': (context) => const LoginPage(),
+        '/search': (context) => const SearchPage(),
       },
     );
   }
@@ -126,7 +128,9 @@ class HomeScreen extends StatelessWidget {
                                     minWidth: 32,
                                     minHeight: 32,
                                   ),
-                                  onPressed: placeholderCallbackForButtons,
+                                  onPressed: () {
+                                     Navigator.pushNamed(context, '/search');
+                                  },
                                 ),
                                 IconButton(
                                   icon: const Icon(

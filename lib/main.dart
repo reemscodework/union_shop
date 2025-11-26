@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_us.dart';
 import 'package:union_shop/footer.dart';
+import 'package:union_shop/cart_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -10,7 +10,6 @@ void main() {
 
 class UnionShopApp extends StatelessWidget {
   const UnionShopApp({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,11 @@ class UnionShopApp extends StatelessWidget {
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
       // In your browser, try this link: http://localhost:49856/#/product
-      routes: {'/product': (context) => const ProductPage(), '/about': (context) => const AboutUsPage()},
+      routes: {
+        '/product': (context) => const ProductPage(),
+        '/about': (context) => const AboutUsPage(),
+        '/cart': (context) => const CartPage()
+      },
     );
   }
 }
@@ -147,7 +150,9 @@ class HomeScreen extends StatelessWidget {
                                     minWidth: 32,
                                     minHeight: 32,
                                   ),
-                                  onPressed: placeholderCallbackForButtons,
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, '/cart');
+                                  },
                                 ),
                                 IconButton(
                                   icon: const Icon(

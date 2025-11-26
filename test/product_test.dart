@@ -16,7 +16,7 @@ void main() {
 
       // Check that basic UI elements are present
       expect(
-        find.text('PLACEHOLDER HEADER TEXT - STUDENTS TO UPDATE!'),
+        find.text('PLACEHOLDER HEADER TEXT'),
         findsOneWidget,
       );
       expect(find.text('Placeholder Product Name'), findsOneWidget);
@@ -52,9 +52,9 @@ void main() {
       await tester.pump();
 
       // Check that footer is present
-      expect(find.text('Placeholder Footer'), findsOneWidget);
+      expect(find.text('Union Shop'), findsOneWidget);
       expect(
-        find.text('Students should customise this footer section'),
+        find.text('Your official student-run store for apparel, accessories, and more.'),
         findsOneWidget,
       );
     });

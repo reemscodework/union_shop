@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 class Footer extends StatelessWidget {
   const Footer({super.key});
 
-  void navigateToHome(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,15 +45,22 @@ class Footer extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   TextButton(
-                    onPressed: () => navigateToHome(context),
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/', (route) => false);
+                    },
                     child: const Text('Home'),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/product');
+                    },
                     child: const Text('All Products'),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/about');
+                    },
                     child: const Text('About Us'),
                   ),
                 ],

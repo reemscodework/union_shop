@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:network_image_mock/network_image_mock.dart';
 import 'package:union_shop/product_page.dart';
 
 void main() {
@@ -11,7 +12,7 @@ void main() {
     testWidgets('should display product page with basic elements', (
       tester,
     ) async {
-      await tester.pumpWidget(createTestWidget());
+      await mockNetworkImagesFor(() => tester.pumpWidget(createTestWidget()));
       await tester.pump();
 
       // Check that basic UI elements are present
@@ -24,21 +25,8 @@ void main() {
       expect(find.text('Description'), findsOneWidget);
     });
 
-    testWidgets('should display student instruction text', (tester) async {
-      await tester.pumpWidget(createTestWidget());
-      await tester.pump();
-
-      // Check that student instruction is present
-      expect(
-        find.text(
-          'Students should add size options, colour options, quantity selector, add to cart button, and buy now button here.',
-        ),
-        findsOneWidget,
-      );
-    });
-
     testWidgets('should display header icons', (tester) async {
-      await tester.pumpWidget(createTestWidget());
+      await mockNetworkImagesFor(() => tester.pumpWidget(createTestWidget()));
       await tester.pump();
 
       // Check that header icons are present
@@ -48,7 +36,7 @@ void main() {
     });
 
     testWidgets('should display footer', (tester) async {
-      await tester.pumpWidget(createTestWidget());
+      await mockNetworkImagesFor(() => tester.pumpWidget(createTestWidget()));
       await tester.pump();
 
       // Check that footer is present

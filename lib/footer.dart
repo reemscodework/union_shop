@@ -65,10 +65,10 @@ class Footer extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Contact',
                     style: TextStyle(
                       fontSize: 16,
@@ -76,10 +76,10 @@ class Footer extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  const Text('union-shop@uni.ac.uk'),
-                  const SizedBox(height: 4),
-                  const Text('+44 123 456 7890'),
+                  SizedBox(height: 8),
+                  Text('union-shop@uni.ac.uk'),
+                  SizedBox(height: 4),
+                  Text('+44 123 456 7890'),
                 ],
               ),
             ],

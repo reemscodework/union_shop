@@ -1,44 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:union_shop/main.dart'; // Assuming ProductCard is in main.dart for now
-
-// A simple data class for our products
-class Product {
-  final String title;
-  final String price;
-  final String imageUrl;
-
-  const Product({required this.title, required this.price, required this.imageUrl});
-}
-
-// Hardcoded list of products for demonstration
-final List<Product> _allProducts = [
-  const Product(
-    title: 'Placeholder Product 1',
-    price: '£10.00',
-    imageUrl: 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-  ),
-  const Product(
-    title: 'Placeholder Product 2',
-    price: '£15.00',
-    imageUrl: 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-  ),
-  const Product(
-    title: 'Placeholder Product 3',
-    price: '£20.00',
-    imageUrl: 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-  ),
-  const Product(
-    title: 'Placeholder Product 4',
-    price: '£25.00',
-    imageUrl: 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-  ),
-  const Product(
-    title: 'Portsmouth City Postcard',
-    price: '£1.00',
-    imageUrl: 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-  ),
-];
+import 'package:union_shop/product.dart';
+import 'package:union_shop/product_card.dart';
+import 'package:union_shop/dummy_products.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -54,7 +18,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   void initState() {
     super.initState();
-    _filteredProducts = _allProducts;
+    _filteredProducts = dummyProducts;
     _searchController.addListener(_onSearchChanged);
   }
 
@@ -69,9 +33,9 @@ class _SearchPageState extends State<SearchPage> {
     final query = _searchController.text.toLowerCase();
     setState(() {
       if (query.isEmpty) {
-        _filteredProducts = _allProducts;
+        _filteredProducts = dummyProducts;
       } else {
-        _filteredProducts = _allProducts
+        _filteredProducts = dummyProducts
             .where((product) => product.title.toLowerCase().contains(query))
             .toList();
       }
@@ -114,8 +78,9 @@ class _SearchPageState extends State<SearchPage> {
                       final product = _filteredProducts[index];
                       return ProductCard(
                         title: product.title,
-                        price: product.price,
+                        price: "£${product.price.toStringAsFixed(2)}",
                         imageUrl: product.imageUrl,
+                        productNumber: product.id,
                       );
                     },
                   )

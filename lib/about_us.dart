@@ -10,12 +10,12 @@ class AboutUsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('About Us'),
       ),
-      body: CustomScrollView(
+      body: const CustomScrollView(
         slivers: [
           SliverList(
             delegate: SliverChildListDelegate.fixed(
               [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

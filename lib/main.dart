@@ -1,3 +1,6 @@
+
+import 'package:provider/provider.dart';
+import 'package:union_shop/cart_provider.dart';
 import 'package:union_shop/collections_page.dart';
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
@@ -7,6 +10,7 @@ import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/login_page.dart';
 import 'package:union_shop/search_page.dart';
 import 'package:union_shop/sale_page.dart';
+import 'package:union_shop/product_card.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -17,26 +21,39 @@ class UnionShopApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Union Shop',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
+    return ChangeNotifierProvider(
+      create: (context) => CartProvider(),
+      child: MaterialApp(
+        title: 'Union Shop',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
+        ),
+        home: const HomeScreen(),
+        initialRoute: '/',
+        routes: {
+          '/about': (context) => const AboutUsPage(),
+          '/cart': (context) => const CartPage(),
+          '/login': (context) => const LoginPage(),
+          '/search': (context) => const SearchPage(),
+          '/sale': (context) => const SalePage(),
+          '/collections': (context) => const CollectionsPage(),
+        },
+        onGenerateRoute: (settings) {
+          if (settings.name != null && settings.name!.startsWith('/product/')) {
+            final idString = settings.name!.split('/').last;
+            final id = int.tryParse(idString);
+            if (id != null) {
+              return MaterialPageRoute(
+                builder: (context) {
+                  return ProductPage(productId: id);
+                },
+              );
+            }
+          }
+          return null;
+        },
       ),
-      home: const HomeScreen(),
-      // By default, the app starts at the '/' route, which is the HomeScreen
-      initialRoute: '/',
-      // When navigating to '\product', build and return the ProductPage
-      // In your browser, try this link: http://localhost:49856/#/product
-      routes: {
-        '/product': (context) => const ProductPage(),
-        '/about': (context) => const AboutUsPage(),
-        '/cart': (context) => const CartPage(),
-        '/login': (context) => const LoginPage(),
-        '/search': (context) => const SearchPage(),
-        '/sale': (context) => const SalePage(),
-        '/collections': (context) => const CollectionsPage(),
-      },
     );
   }
 }
@@ -46,10 +63,6 @@ class HomeScreen extends StatelessWidget {
 
   void navigateToHome(BuildContext context) {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-  }
-
-  void navigateToProduct(BuildContext context) {
-    Navigator.pushNamed(context, '/product');
   }
 
   void placeholderCallbackForButtons() {
@@ -74,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     color: const Color(0xFF4d2963),
                     child: const Text(
-                      'Big Sale! check it out from the sale button',
+                      'PLACEHOLDER HEADER TEXT',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
@@ -232,7 +245,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Text(
-                          'Collections',
+                          'Placeholder Hero Title',
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
@@ -242,7 +255,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         const Text(
-                          "check all the products available! (i'm not good at marketing)",
+                          "This is placeholder text for the hero section.",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
@@ -301,24 +314,35 @@ class HomeScreen extends StatelessWidget {
                           price: '£10.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                          productNumber: 1,
                         ),
                         ProductCard(
                           title: 'Placeholder Product 2',
                           price: '£15.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                          productNumber: 2,
                         ),
                         ProductCard(
                           title: 'Placeholder Product 3',
                           price: '£20.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                          productNumber: 3,
                         ),
                         ProductCard(
                           title: 'Placeholder Product 4',
                           price: '£25.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                          productNumber: 4,
+                        ),
+                         ProductCard(
+                          title: 'Placeholder Product 5',
+                          price: '£30.00',
+                          imageUrl:
+                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                          productNumber: 5,
                         ),
                       ],
                     ),
@@ -331,63 +355,6 @@ class HomeScreen extends StatelessWidget {
             const Footer(),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ProductCard extends StatelessWidget {
-  final String title;
-  final String price;
-  final String imageUrl;
-
-  const ProductCard({
-    super.key,
-    required this.title,
-    required this.price,
-    required this.imageUrl,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, '/product');
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Image.network(
-              imageUrl,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  color: Colors.grey[300],
-                  child: const Center(
-                    child: Icon(Icons.image_not_supported, color: Colors.grey),
-                  ),
-                );
-              },
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 4),
-              Text(
-                title,
-                style: const TextStyle(fontSize: 14, color: Colors.black),
-                maxLines: 2,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                price,
-                style: const TextStyle(fontSize: 13, color: Colors.grey),
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }

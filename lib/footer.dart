@@ -53,9 +53,9 @@ class Footer extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/product');
+                      Navigator.pushNamed(context, '/collections');
                     },
-                    child: const Text('All Products'),
+                    child: const Text('Collections'),
                   ),
                   TextButton(
                     onPressed: () {

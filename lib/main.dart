@@ -5,6 +5,7 @@ import 'package:union_shop/footer.dart';
 import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/login_page.dart';
 import 'package:union_shop/search_page.dart';
+import 'package:union_shop/sale_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -24,7 +25,7 @@ class UnionShopApp extends StatelessWidget {
       home: const HomeScreen(),
       // By default, the app starts at the '/' route, which is the HomeScreen
       initialRoute: '/',
-      // When navigating to '/product', build and return the ProductPage
+      // When navigating to '\product', build and return the ProductPage
       // In your browser, try this link: http://localhost:49856/#/product
       routes: {
         '/product': (context) => const ProductPage(),
@@ -32,6 +33,7 @@ class UnionShopApp extends StatelessWidget {
         '/cart': (context) => const CartPage(),
         '/login': (context) => const LoginPage(),
         '/search': (context) => const SearchPage(),
+        '/sale': (context) => const SalePage(),
       },
     );
   }
@@ -108,6 +110,15 @@ class HomeScreen extends StatelessWidget {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, '/sale');
+                                  },
+                                  child: const Text(
+                                    'Sale',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                ),
                                 TextButton(
                                   onPressed: () {
                                     Navigator.pushNamed(context, '/about');

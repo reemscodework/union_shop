@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     color: const Color(0xFF4d2963),
                     child: const Text(
-                      'PLACEHOLDER HEADER TEXT',
+                      'Big Sale! Up to 50% off all products!(im lying)',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
@@ -245,7 +245,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Text(
-                          'Placeholder Hero Title',
+                          'collections and products',
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
@@ -255,7 +255,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         const Text(
-                          "This is placeholder text for the hero section.",
+                          "check out the product(not good at marketing)",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
@@ -310,36 +310,36 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: 48,
                       children: const [
                         ProductCard(
-                          title: 'Placeholder Product 1',
-                          price: '£10.00',
+                          title: 'Uop Hoodie',
+                          price: '£35.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
                           productNumber: 1,
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 2',
+                          title: 'Uop T-Shirt',
                           price: '£15.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
                           productNumber: 2,
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 3',
-                          price: '£20.00',
+                          title: 'Uop Water Bottle',
+                          price: '£12.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
                           productNumber: 3,
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 4',
-                          price: '£25.00',
+                          title: 'Uop Beanie',
+                          price: '£10.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
                           productNumber: 4,
                         ),
                          ProductCard(
-                          title: 'Placeholder Product 5',
-                          price: '£30.00',
+                          title: 'Uop Mug',
+                          price: '£8.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
                           productNumber: 5,

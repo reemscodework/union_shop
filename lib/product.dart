@@ -4,6 +4,8 @@ class Product {
   final double price;
   final String imageUrl;
   final String description;
+  final double? originalPrice;
+  final bool isSale;
 
   const Product({
     required this.id,
@@ -11,5 +13,7 @@ class Product {
     required this.price,
     required this.imageUrl,
     required this.description,
+    this.originalPrice,
+    this.isSale = false,
   });
 }

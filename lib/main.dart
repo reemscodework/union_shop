@@ -11,6 +11,8 @@ import 'package:union_shop/login_page.dart';
 import 'package:union_shop/search_page.dart';
 import 'package:union_shop/sale_page.dart';
 import 'package:union_shop/product_card.dart';
+import 'package:union_shop/print_shack_page_1.dart';
+import 'package:union_shop/print_shack_page_2.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -38,6 +40,8 @@ class UnionShopApp extends StatelessWidget {
           '/search': (context) => const SearchPage(),
           '/sale': (context) => const SalePage(),
           '/collections': (context) => const CollectionsPage(),
+          '/print_shack_page_1': (context) => const PrintShackPage1(),
+          '/print_shack_page_2': (context) => const PrintShackPage2(),
         },
         onGenerateRoute: (settings) {
           if (settings.name != null && settings.name!.startsWith('/product/')) {
@@ -125,6 +129,28 @@ class HomeScreen extends StatelessWidget {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
+                                DropdownButton<String>(
+                                  hint: const Text(
+                                    'The Print Shack',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  items: <String>['Page 1', 'Page 2']
+                                      .map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String? newValue) {
+                                    if (newValue == 'Page 1') {
+                                      Navigator.pushNamed(
+                                          context, '/print_shack_page_1');
+                                    } else if (newValue == 'Page 2') {
+                                      Navigator.pushNamed(
+                                          context, '/print_shack_page_2');
+                                    }
+                                  },
+                                ),
                                 TextButton(
                                   onPressed: () {
                                     Navigator.pushNamed(context, '/sale');
@@ -155,7 +181,7 @@ class HomeScreen extends StatelessWidget {
                                     minHeight: 32,
                                   ),
                                   onPressed: () {
-                                     Navigator.pushNamed(context, '/search');
+                                    Navigator.pushNamed(context, '/search');
                                   },
                                 ),
                                 IconButton(

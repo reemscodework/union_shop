@@ -131,6 +131,29 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 DropdownButton<String>(
                                   hint: const Text(
+                                                                        'Shop',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  items: <String>[
+                                    'Button 1',
+                                    'Button 2',
+                                    'Button 3',
+                                    'Button 4',
+                                    'Button 5',
+                                    'Button 6',
+                                    'Button 7'
+                                  ].map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String? newValue) {
+                                    // TODO: Implement actions for these buttons
+                                  },
+                                ),
+                                DropdownButton<String>(
+                                  hint: const Text(
                                     'The Print Shack',
                                     style: TextStyle(color: Colors.grey),
                                   ),

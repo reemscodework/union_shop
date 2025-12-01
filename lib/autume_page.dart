@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/dummy_products.dart';
 import 'package:union_shop/product_card.dart';
 
-class CollectionsPage extends StatelessWidget {
-  const CollectionsPage({super.key});
+class AutumnPage extends StatelessWidget {
+  const AutumnPage({super.key});
 
   @override
   Widget build(BuildContext context) {

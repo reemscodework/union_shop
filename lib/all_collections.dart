@@ -16,7 +16,7 @@ class AllCollectionsPage extends StatelessWidget {
             context,
             'Autumn Favourites',
             'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
-            '/collections',
+            '/autume',
           ),
           _buildCollectionCard(
             context,

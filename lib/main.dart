@@ -1,18 +1,19 @@
 
-import 'package:provider/provider.dart';
-import 'package:union_shop/cart_provider.dart';
-import 'package:union_shop/collections_page.dart';
 import 'package:flutter/material.dart';
-import 'package:union_shop/product_page.dart';
+import 'package:provider/provider.dart';
 import 'package:union_shop/about_us.dart';
-import 'package:union_shop/footer.dart';
+import 'package:union_shop/all_collections.dart';
+import 'package:union_shop/autume_page.dart';
 import 'package:union_shop/cart_page.dart';
+import 'package:union_shop/cart_provider.dart';
+import 'package:union_shop/footer.dart';
 import 'package:union_shop/login_page.dart';
-import 'package:union_shop/search_page.dart';
-import 'package:union_shop/sale_page.dart';
-import 'package:union_shop/product_card.dart';
 import 'package:union_shop/print_shack_page_1.dart';
 import 'package:union_shop/print_shack_page_2.dart';
+import 'package:union_shop/product_card.dart';
+import 'package:union_shop/product_page.dart';
+import 'package:union_shop/sale_page.dart';
+import 'package:union_shop/search_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -39,7 +40,9 @@ class UnionShopApp extends StatelessWidget {
           '/login': (context) => const LoginPage(),
           '/search': (context) => const SearchPage(),
           '/sale': (context) => const SalePage(),
-          '/collections': (context) => const CollectionsPage(),
+          '/autume': (context) => const AutumnPage(),
+          '/collections': (context) => const AutumnPage(),
+          '/all_collections': (context) => const AllCollectionsPage(),
           '/print_shack_page_1': (context) => const PrintShackPage1(),
           '/print_shack_page_2': (context) => const PrintShackPage2(),
         },
@@ -131,25 +134,22 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 DropdownButton<String>(
                                   hint: const Text(
-                                                                        'Shop',
+                                    'Shop',
                                     style: TextStyle(color: Colors.grey),
                                   ),
-                                  items: <String>[
-                                    'Button 1',
-                                    'Button 2',
-                                    'Button 3',
-                                    'Button 4',
-                                    'Button 5',
-                                    'Button 6',
-                                    'Button 7'
-                                  ].map((String value) {
+                                  items: <String>['All Collections', 'Autumn Favourites']
+                                      .map((String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
                                       child: Text(value),
                                     );
                                   }).toList(),
                                   onChanged: (String? newValue) {
-                                    // TODO: Implement actions for these buttons
+                                    if (newValue == 'All Collections') {
+                                      Navigator.pushNamed(context, '/all_collections');
+                                    } else if (newValue == 'Autumn Favourites') {
+                                      Navigator.pushNamed(context, '/autume');
+                                    }
                                   },
                                 ),
                                 DropdownButton<String>(

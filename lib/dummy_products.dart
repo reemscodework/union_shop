@@ -36,6 +36,27 @@ final dummyProducts = [
     imageUrl: 'https://shop.upsu.net/cdn/shop/files/UOPMug-Front_1024x1024@2x.jpg?v=1752229871',
     description: 'Enjoy your morning coffee with this University of Portsmouth mug.',
   ),
+  const Product(
+    id: 9,
+    title: 'UoP Backpack',
+    price: 45.00,
+    imageUrl: 'https://shop.upsu.net/cdn/shop/files/UOPBackpack-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'Carry your essentials in this spacious and durable University of Portsmouth backpack.',
+  ),
+  const Product(
+    id: 10,
+    title: 'UoP Scarf',
+    price: 18.00,
+    imageUrl: 'https://shop.upsu.net/cdn/shop/files/UOPScarf-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'Stay warm and show your university pride with this soft University of Portsmouth scarf.',
+  ),
+  const Product(
+    id: 11,
+    title: 'UoP Notebook',
+    price: 6.00,
+    imageUrl: 'https://shop.upsu.net/cdn/shop/files/UOPNotebook-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'Jot down your notes in this classic University of Portsmouth notebook.',
+  ),
 ];
 
 final dummySaleProducts = [

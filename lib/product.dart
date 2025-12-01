@@ -6,6 +6,7 @@ class Product {
   final String description;
   final double? originalPrice;
   final bool isSale;
+  final String category;
 
   const Product({
     required this.id,
@@ -15,5 +16,6 @@ class Product {
     required this.description,
     this.originalPrice,
     this.isSale = false,
+    required this.category,
   });
 }

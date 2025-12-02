@@ -4,6 +4,7 @@ import 'package:union_shop/dummy_products.dart';
 import 'package:union_shop/product_card.dart';
 import 'package:union_shop/product.dart';
 import 'package:union_shop/footer.dart';
+import 'package:union_shop/header.dart';
 
 class CollectionPage extends StatefulWidget {
   // optional: pass a collection name to pre-select a mapping
@@ -126,8 +127,9 @@ class _CollectionPageState extends State<CollectionPage> {
     final gridKey = ValueKey('${activeFilter}_$sortOrder$currentPage');
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.collectionName ?? 'Collections'),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: Header(),
       ),
       body: SingleChildScrollView(
         child: Padding(

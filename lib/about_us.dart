@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/footer.dart';
+import 'package:union_shop/header.dart';
 
 class AboutUsPage extends StatelessWidget {
   const AboutUsPage({super.key});
@@ -7,8 +8,9 @@ class AboutUsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('About Us'),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: Header(),
       ),
       body: const CustomScrollView(
         slivers: [

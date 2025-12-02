@@ -90,16 +90,6 @@ class Footer extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 24),
-          const Center(
-            child: Text(
-              '© 2024 Union Shop. All rights reserved.',
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
-            ),
-          ),
         ],
       ),
     );

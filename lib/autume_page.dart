@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/dummy_products.dart';
+import 'package:union_shop/footer.dart';
+import 'package:union_shop/header.dart';
 import 'package:union_shop/product_card.dart';
 
 class AutumnPage extends StatelessWidget {
@@ -8,8 +10,9 @@ class AutumnPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Autumn Favourites'),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: Header(),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -52,6 +55,7 @@ class AutumnPage extends StatelessWidget {
                   );
                 },
               ),
+              const Footer(),
             ],
           ),
         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/dummy_products.dart';
+import 'package:union_shop/footer.dart';
+import 'package:union_shop/header.dart';
 import 'package:union_shop/product_card.dart';
 
 class SalePage extends StatelessWidget {
@@ -7,45 +9,52 @@ class SalePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Sale Items',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+    return Scaffold(
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: Header(),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Sale Items',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: MediaQuery.of(context).size.width > 600 ? 4 : 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                childAspectRatio: 0.7,
+              const SizedBox(height: 16),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: MediaQuery.of(context).size.width > 600 ? 4 : 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  childAspectRatio: 0.7,
+                ),
+                itemCount: dummySaleProducts.length,
+                itemBuilder: (context, index) {
+                  final product = dummySaleProducts[index];
+                  return ProductCard(
+                    title: product.title,
+                    price: '£${product.price.toStringAsFixed(2)}',
+                    originalPrice: product.originalPrice != null
+                        ? '£${product.originalPrice!.toStringAsFixed(2)}'
+                        : null,
+                    imageUrl: product.imageUrl,
+                    productNumber: product.id,
+                    isSale: product.isSale,
+                  );
+                },
               ),
-              itemCount: dummySaleProducts.length,
-              itemBuilder: (context, index) {
-                final product = dummySaleProducts[index];
-                return ProductCard(
-                  title: product.title,
-                  price: '£${product.price.toStringAsFixed(2)}',
-                  originalPrice: product.originalPrice != null
-                      ? '£${product.originalPrice!.toStringAsFixed(2)}'
-                      : null,
-                  imageUrl: product.imageUrl,
-                  productNumber: product.id,
-                  isSale: product.isSale,
-                );
-              },
-            ),
-          ],
+              const Footer(),
+            ],
+          ),
         ),
       ),
     );

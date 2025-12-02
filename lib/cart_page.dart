@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:union_shop/cart_provider.dart';
+import 'package:union_shop/footer.dart';
+import 'package:union_shop/header.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -11,67 +13,71 @@ class CartPage extends StatelessWidget {
     final cart = Provider.of<CartProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Your Cart'),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: cart.items.isEmpty
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Header(),
+            cart.items.isEmpty
                 ? const Center(
-                    child: Text(
-                      'Your cart is empty.',
-                      style: TextStyle(fontSize: 18),
+                    child: Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Your cart is empty.',
+                        style: TextStyle(fontSize: 18),
+                      ),
                     ),
                   )
                 : ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: cart.items.length,
                     itemBuilder: (ctx, i) {
                       final cartItem = cart.items.values.toList()[i];
                       return CartListItem(cartItem: cartItem, productId: cart.items.keys.toList()[i]);
                     },
                   ),
-          ),
-          if (cart.items.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Total:',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+            if (cart.items.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Total:',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '£${cart.totalAmount.toStringAsFixed(2)}',
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                        Text(
+                          '£${cart.totalAmount.toStringAsFixed(2)}',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle checkout logic here
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF4d2963),
-                      foregroundColor: Colors.white,
-                      minimumSize: const Size(double.infinity, 50),
+                      ],
                     ),
-                    child: const Text('CHECKOUT'),
-                  ),
-                ],
+                    const SizedBox(height: 16),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Handle checkout logic here
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF4d2963),
+                        foregroundColor: Colors.white,
+                        minimumSize: const Size(double.infinity, 50),
+                      ),
+                      child: const Text('CHECKOUT'),
+                    ),
+                  ],
+                ),
               ),
-            ),
-        ],
+            const Footer(),
+          ],
+        ),
       ),
     );
   }

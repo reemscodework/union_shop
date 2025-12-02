@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:union_shop/cart_provider.dart';
 import 'package:union_shop/dummy_products.dart';
 import 'package:union_shop/footer.dart';
+import 'package:union_shop/header.dart';
 
 class ProductPage extends StatelessWidget {
   final int productId;
@@ -15,7 +16,10 @@ class ProductPage extends StatelessWidget {
     final cart = Provider.of<CartProvider>(context, listen: false);
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: Header(),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

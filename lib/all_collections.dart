@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/footer.dart';
+import 'package:union_shop/header.dart';
 
 class AllCollectionsPage extends StatelessWidget {
   const AllCollectionsPage({super.key});
@@ -6,37 +8,44 @@ class AllCollectionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Collections'),
-      ),
-      body: GridView.count(
-        crossAxisCount: MediaQuery.of(context).size.width > 600 ? 4 : 2,
-        children: [
-          _buildCollectionCard(
-            context,
-            'Autumn Favourites',
-            'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
-            '/autume',
-          ),
-          _buildCollectionCard(
-            context,
-            'UoP Essentials',
-            'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
-            '/collections',
-          ),
-          _buildCollectionCard(
-            context,
-            'Gifts & Souvenirs',
-            'https://shop.upsu.net/cdn/shop/files/UOPMug-Front_1024x1024@2x.jpg?v=1752229871',
-            '/collections',
-          ),
-          _buildCollectionCard(
-            context,
-            'Graduation',
-            'https://www.uop.com/content/dam/uop/en/news-articles/meet-our-2023-uop-honeywell-scholarship-winners/2023-uop-scholars-social-card.jpg',
-            '/collections',
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Header(),
+            GridView.count(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: MediaQuery.of(context).size.width > 600 ? 4 : 2,
+              children: [
+                _buildCollectionCard(
+                  context,
+                  'Autumn Favourites',
+                  'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
+                  '/autume',
+                ),
+                _buildCollectionCard(
+                  context,
+                  'UoP Essentials',
+                  'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
+                  '/collections',
+                ),
+                _buildCollectionCard(
+                  context,
+                  'Gifts & Souvenirs',
+                  'https://shop.upsu.net/cdn/shop/files/UOPMug-Front_1024x1024@2x.jpg?v=1752229871',
+                  '/collections',
+                ),
+                _buildCollectionCard(
+                  context,
+                  'Graduation',
+                  'https://www.uop.com/content/dam/uop/en/news-articles/meet-our-2023-uop-honeywell-scholarship-winners/2023-uop-scholars-social-card.jpg',
+                  '/collections',
+                ),
+              ],
+            ),
+            const Footer(),
+          ],
+        ),
       ),
     );
   }

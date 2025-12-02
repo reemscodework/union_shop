@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/product.dart';
 import 'package:union_shop/product_card.dart';
 import 'package:union_shop/dummy_products.dart';
+import 'package:union_shop/footer.dart';
+import 'package:union_shop/header.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -45,26 +47,26 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Search Products'),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              controller: _searchController,
-              decoration: const InputDecoration(
-                labelText: 'Search',
-                hintText: 'Enter product name...',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Header(),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                controller: _searchController,
+                decoration: const InputDecoration(
+                  labelText: 'Search',
+                  hintText: 'Enter product name...',
+                  prefixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
-          Expanded(
-            child: _filteredProducts.isNotEmpty
+            _filteredProducts.isNotEmpty
                 ? GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount:
                           MediaQuery.of(context).size.width > 600 ? 4 : 2,
@@ -87,8 +89,9 @@ class _SearchPageState extends State<SearchPage> {
                 : const Center(
                     child: Text('No products found.'),
                   ),
-          ),
-        ],
+            const Footer(),
+          ],
+        ),
       ),
     );
   }

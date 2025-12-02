@@ -8,10 +8,6 @@ class Header extends StatelessWidget {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
   }
 
-  void placeholderCallbackForButtons() {
-    // This is the event handler for buttons that don't work yet
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -63,66 +59,6 @@ class Header extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        DropdownButton<String>(
-                          hint: const Text(
-                            'Shop',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          items: <String>['All Collections', 'Autumn Favourites']
-                              .map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            if (newValue == 'All Collections') {
-                              Navigator.pushNamed(context, '/all_collections');
-                            } else if (newValue == 'Autumn Favourites') {
-                              Navigator.pushNamed(context, '/autume');
-                            }
-                          },
-                        ),
-                        DropdownButton<String>(
-                          hint: const Text(
-                            'The Print Shack',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          items: <String>['Page 1', 'Page 2']
-                              .map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            if (newValue == 'Page 1') {
-                              Navigator.pushNamed(
-                                  context, '/print_shack_page_1');
-                            } else if (newValue == 'Page 2') {
-                              Navigator.pushNamed(
-                                  context, '/print_shack_page_2');
-                            }
-                          },
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/sale');
-                          },
-                          child: const Text(
-                            'Sale',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/about');
-                          },
-                          child: const Text(
-                            'About Us',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ),
                         IconButton(
                           icon: const Icon(
                             Icons.search,
@@ -179,7 +115,9 @@ class Header extends StatelessWidget {
                             minWidth: 32,
                             minHeight: 32,
                           ),
-                          onPressed: placeholderCallbackForButtons,
+                          onPressed: () {
+                            Scaffold.of(context).openEndDrawer();
+                          },
                         ),
                       ],
                     ),
@@ -193,4 +131,3 @@ class Header extends StatelessWidget {
     );
   }
 }
-

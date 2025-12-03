@@ -16,6 +16,7 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   String? _selectedColor;
+  String? _selectedSize;
 
   @override
   Widget build(BuildContext context) {
@@ -164,6 +165,36 @@ class _ProductPageState extends State<ProductPage> {
                         const SizedBox(height: 24),
                       ],
                     ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Size',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      DropdownButton<String>(
+                        value: _selectedSize ?? 'S',
+                        isExpanded: true,
+                        items: <String>['S', 'M', 'L', 'XL'].map((String size) {
+                          return DropdownMenuItem<String>(
+                            value: size,
+                            child: Text(size),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _selectedSize = newValue;
+                          });
+                        },
+                      ),
+                      const SizedBox(height: 24),
+                    ],
+                  ),
                   const Text(
                     'Description',
                     style: TextStyle(

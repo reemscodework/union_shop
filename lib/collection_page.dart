@@ -175,32 +175,28 @@ class _CollectionPageState extends State<CollectionPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Title
-              Text(
-                widget.collectionName ?? 'All Collections',
-                style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              Center(
+                child: Text(
+                  widget.collectionName ?? 'All Collections',
+                  style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(height: 12),
               // Controls: Filters + Sort
               Row(
                 children: [
-                  // Filters as ChoiceChips
-                  Expanded(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: allCategories.map((cat) {
-                          final selected = cat == activeFilter;
-                          return Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: ChoiceChip(
-                              label: Text(cat),
-                              selected: selected,
-                              onSelected: (_) => _changeFilter(cat),
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ),
+                  // Filters as Dropdown
+                  DropdownButton<String>(
+                    value: activeFilter,
+                    items: allCategories.map((cat) {
+                      return DropdownMenuItem(
+                        value: cat,
+                        child: Text(cat),
+                      );
+                    }).toList(),
+                    onChanged: (v) {
+                      if (v != null) _changeFilter(v);
+                    },
                   ),
 
                   const SizedBox(width: 12),

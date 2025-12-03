@@ -10,7 +10,6 @@ import 'package:union_shop/footer.dart';
 import 'package:union_shop/header.dart';
 import 'package:union_shop/login_page.dart';
 import 'package:union_shop/print_shack_page_1.dart';
-import 'package:union_shop/print_shack_page_2.dart';
 import 'package:union_shop/product_card.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/sale_page.dart';
@@ -46,7 +45,6 @@ class UnionShopApp extends StatelessWidget {
           '/collections': (context) => const CollectionPage(),
           '/all_collections': (context) => const AllCollectionsPage(),
           '/print_shack_page_1': (context) => const PrintShackPage1(),
-          '/print_shack_page_2': (context) => const PrintShackPage2(),
         },
         onGenerateRoute: (settings) {
           if (settings.name != null && settings.name!.startsWith('/product/')) {

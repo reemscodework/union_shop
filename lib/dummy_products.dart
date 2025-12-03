@@ -74,6 +74,105 @@ final dummyProducts = [
     category: 'Accessory',
   ),
   const Product(
+    id: 12,
+    title: 'Lanyards',
+    price: 5.00,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPLanyard-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'Keep your keys and ID safe with a UoP lanyard.',
+    category: 'Accessory',
+  ),
+  const Product(
+    id: 13,
+    title: 'Graduation Bear',
+    price: 20.00,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPGraduationBear-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'A cuddly companion to celebrate your graduation.',
+    category: 'Gift',
+  ),
+  const Product(
+    id: 14,
+    title: 'Pen',
+    price: 2.00,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPPen-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'A sleek pen with the UoP logo.',
+    category: 'Accessory',
+  ),
+  const Product(
+    id: 15,
+    title: 'Sweatshirts',
+    price: 30.00,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPSweatshirt-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'A cozy sweatshirt to keep you warm.',
+    category: 'Sweatshirt',
+  ),
+  const Product(
+    id: 16,
+    title: 'Notepad',
+    price: 4.00,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPNotepad-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'A handy notepad for your notes and doodles.',
+    category: 'Accessory',
+  ),
+  const Product(
+    id: 17,
+    title: 'Keep Cups',
+    price: 15.00,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPKeepCup-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'A reusable cup to enjoy your coffee on the go.',
+    category: 'Accessory',
+  ),
+  const Product(
+    id: 18,
+    title: 'Crested Badge',
+    price: 3.00,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPCrestedBadge-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'Show your pride with a UoP crested badge.',
+    category: 'Accessory',
+  ),
+  const Product(
+    id: 19,
+    title: 'Graduation Hoodies',
+    price: 40.00,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPGraduationHoodie-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'A special hoodie to commemorate your graduation.',
+    category: 'Hoodie',
+  ),
+  const Product(
+    id: 20,
+    title: 'ID Holder',
+    price: 4.00,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPIDHolder-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'Keep your ID safe and secure.',
+    category: 'Accessory',
+  ),
+  const Product(
+    id: 21,
+    title: 'Bookmark',
+    price: 2.50,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPBookmark-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'Never lose your page with this UoP bookmark.',
+    category: 'Accessory',
+  ),
+  const Product(
+    id: 22,
+    title: 'Fidget Keyring',
+    price: 3.50,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPFidgetKeyring-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'A fun and fidgety keyring to keep you entertained.',
+    category: 'Accessory',
+  ),
+  const Product(
     id: 6,
     title: 'UoP Hoodie - Sale',
     price: 25.00,
@@ -105,6 +204,17 @@ final dummyProducts = [
         'https://shop.upsu.net/cdn/shop/files/UOPWaterBottle-Front_1024x1024@2x.jpg?v=1752229871',
     description: 'Now on sale!',
     category: 'Accessory',
+  ),
+  const Product(
+    id: 23,
+    title: 'Sweatshirt - Sale',
+    price: 20.00,
+    originalPrice: 30.00,
+    isSale: true,
+    imageUrl:
+        'https://shop.upsu.net/cdn/shop/files/UOPSweatshirt-Front_1024x1024@2x.jpg?v=1752229871',
+    description: 'Now on sale!',
+    category: 'Sweatshirt',
   ),
 ];
 

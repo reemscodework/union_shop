@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:network_image_mock/network_image_mock.dart';
 import 'package:union_shop/all_collections.dart';
 
 void main() {
   testWidgets('All collections page has a grid of collection cards', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MaterialApp(home: AllCollectionsPage()));
+    await mockNetworkImagesFor(() => tester.pumpWidget(const MaterialApp(home: AllCollectionsPage())));
 
     // Verify that our all collections page has a grid view.
     expect(find.byType(GridView), findsOneWidget);

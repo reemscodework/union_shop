@@ -9,6 +9,12 @@ final dummyProducts = [
         'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
     description: 'Classic University of Portsmouth hoodie. Perfect for staying warm on campus.',
     category: 'Hoodie',
+    colors: {
+      'Black': 'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
+      'Purple': 'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Purple-Front_1024x1024@2x.jpg?v=1752229871',
+      'Grey': 'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Grey-Front_1024x1024@2x.jpg?v=1752229871',
+      'Green': 'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Green-Front_1024x1024@2x.jpg?v=1752229871',
+    },
   ),
   const Product(
     id: 2,

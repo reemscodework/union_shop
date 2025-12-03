@@ -5,15 +5,26 @@ import 'package:union_shop/dummy_products.dart';
 import 'package:union_shop/footer.dart';
 import 'package:union_shop/header.dart';
 
-class ProductPage extends StatelessWidget {
+class ProductPage extends StatefulWidget {
   final int productId;
 
   const ProductPage({super.key, required this.productId});
 
   @override
+  _ProductPageState createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
+  String? _selectedColor;
+
+  @override
   Widget build(BuildContext context) {
-    final product = dummyProducts.firstWhere((p) => p.id == productId);
+    final product = dummyProducts.firstWhere((p) => p.id == widget.productId);
     final cart = Provider.of<CartProvider>(context, listen: false);
+
+    final imageUrl = _selectedColor != null && product.colors != null
+        ? product.colors![_selectedColor!]
+        : product.imageUrl;
 
     return Scaffold(
       appBar: const PreferredSize(
@@ -76,7 +87,7 @@ class ProductPage extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Image.network(
-                        product.imageUrl,
+                        imageUrl!,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
                           return Container(
@@ -122,6 +133,37 @@ class ProductPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
+                  if (product.colors != null)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Color',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        DropdownButton<String>(
+                          value: _selectedColor ?? product.colors!.keys.first,
+                          isExpanded: true,
+                          items: product.colors!.keys.map((String color) {
+                            return DropdownMenuItem<String>(
+                              value: color,
+                              child: Text(color),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              _selectedColor = newValue;
+                            });
+                          },
+                        ),
+                        const SizedBox(height: 24),
+                      ],
+                    ),
                   const Text(
                     'Description',
                     style: TextStyle(
@@ -142,7 +184,12 @@ class ProductPage extends StatelessWidget {
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
-                      cart.addItem(product.id.toString(), product.price, product.title, product.imageUrl);
+                      cart.addItem(
+                        product.id.toString(),
+                        product.price,
+                        product.title,
+                        imageUrl,
+                      );
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('Added to cart!'),

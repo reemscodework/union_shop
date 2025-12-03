@@ -6,6 +6,7 @@ import 'package:union_shop/all_collections.dart';
 import 'package:union_shop/autume_page.dart';
 import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/cart_provider.dart';
+import 'package:union_shop/common_drawer.dart';
 import 'package:union_shop/footer.dart';
 import 'package:union_shop/header.dart';
 import 'package:union_shop/login_page.dart';
@@ -71,43 +72,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xFF4d2963),
-              ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-              },
-            ),
-            ListTile(
-              title: const Text('Sale'),
-              onTap: () {
-                Navigator.pushNamed(context, '/sale');
-              },
-            ),
-            ListTile(
-              title: const Text('About Us'),
-              onTap: () {
-                Navigator.pushNamed(context, '/about');
-              },
-            ),
-          ],
-        ),
-      ),
+      endDrawer: const CommonDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -121,19 +86,15 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   // Background image
                   Positioned.fill(
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        image: const DecorationImage(
                           image: NetworkImage(
                             'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
                           ),
                           fit: BoxFit.cover,
                         ),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.7),
-                        ),
+                        color: const Color.fromRGBO(0, 0, 0, 0.7),
                       ),
                     ),
                   ),
@@ -187,7 +148,7 @@ class HomeScreen extends StatelessWidget {
             ),
 
             // Products Section
-            Container(
+            ColoredBox(
               color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.all(40.0),

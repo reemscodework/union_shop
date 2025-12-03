@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:union_shop/cart_provider.dart';
+import 'package:union_shop/common_drawer.dart';
 import 'package:union_shop/dummy_products.dart';
 import 'package:union_shop/footer.dart';
 import 'package:union_shop/header.dart';
@@ -32,56 +33,7 @@ class _ProductPageState extends State<ProductPage> {
         preferredSize: Size.fromHeight(100),
         child: Header(),
       ),
-      endDrawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xFF4d2963),
-              ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-              },
-            ),
-            ListTile(
-              title: const Text('Sale'),
-              onTap: () {
-                Navigator.pushNamed(context, '/sale');
-              },
-            ),
-            ListTile(
-              title: const Text('About Us'),
-              onTap: () {
-                Navigator.pushNamed(context, '/about');
-              },
-            ),
-            ExpansionTile(
-              title: const Text('Print shack'),
-              children: [
-                ListTile(
-                  title: const Text('about'),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text('Personalize'),
-                  onTap: () {},
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      endDrawer: const CommonDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [

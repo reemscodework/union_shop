@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/common_drawer.dart';
 import 'package:union_shop/footer.dart';
 import 'package:union_shop/header.dart';
 
@@ -8,43 +9,7 @@ class AllCollectionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xFF4d2963),
-              ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-              },
-            ),
-            ListTile(
-              title: const Text('Sale'),
-              onTap: () {
-                Navigator.pushNamed(context, '/sale');
-              },
-            ),
-            ListTile(
-              title: const Text('About Us'),
-              onTap: () {
-                Navigator.pushNamed(context, '/about');
-              },
-            ),
-          ],
-        ),
-      ),
+      endDrawer: const CommonDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [

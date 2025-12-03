@@ -152,15 +152,6 @@ final dummyProducts = [
     category: 'Hoodie',
   ),
   const Product(
-    id: 20,
-    title: 'ID Holder',
-    price: 4.00,
-    imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPIDHolder-Front_1024x1024@2x.jpg?v=1752229871',
-    description: 'Keep your ID safe and secure.',
-    category: 'Accessory',
-  ),
-  const Product(
     id: 21,
     title: 'Bookmark',
     price: 2.50,

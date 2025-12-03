@@ -6,14 +6,14 @@ final dummyProducts = [
     title: 'UoP Hoodie',
     price: 35.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/hoodie_black.png',
     description: 'Classic University of Portsmouth hoodie. Perfect for staying warm on campus.',
     category: 'Hoodie',
     colors: {
-      'Black': 'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
-      'Purple': 'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Purple-Front_1024x1024@2x.jpg?v=1752229871',
-      'Grey': 'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Grey-Front_1024x1024@2x.jpg?v=1752229871',
-      'Green': 'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Green-Front_1024x1024@2x.jpg?v=1752229871',
+      'Black': 'assets/images/hoodie_black.png',
+      'Purple': 'assets/images/hoodie_purple.png',
+      'Grey': 'assets/images/hoodie_grey.png',
+      'Green': 'assets/images/hoodie_green.png',
     },
   ),
   const Product(
@@ -57,7 +57,7 @@ final dummyProducts = [
     title: 'UoP Backpack',
     price: 45.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPBackpack-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/backpack.png',
     description: 'Carry your essentials in this spacious and durable University of Portsmouth backpack.',
     category: 'Accessory',
   ),
@@ -75,7 +75,7 @@ final dummyProducts = [
     title: 'UoP Notebook',
     price: 6.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPNotebook-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/notebook_black.png',
     description: 'Jot down your notes in this classic University of Portsmouth notebook.',
     category: 'Accessory',
   ),
@@ -147,7 +147,7 @@ final dummyProducts = [
     title: 'Graduation Hoodies',
     price: 40.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPGraduationHoodie-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/hoodie_black.png',
     description: 'A special hoodie to commemorate your graduation.',
     category: 'Hoodie',
   ),
@@ -185,7 +185,7 @@ final dummyProducts = [
     originalPrice: 35.00,
     isSale: true,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPHoodie-Black-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/hoodie_black.png',
     description: 'Now on sale!',
     category: 'Hoodie',
   ),
@@ -196,7 +196,7 @@ final dummyProducts = [
     originalPrice: 15.00,
     isSale: true,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPT-Shirt-Black-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/tshirt.png',
     description: 'Now on sale!',
     category: 'T-Shirt',
   ),
@@ -207,7 +207,7 @@ final dummyProducts = [
     originalPrice: 12.00,
     isSale: true,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPWaterBottle-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/waterbottle.png',
     description: 'Now on sale!',
     category: 'Accessory',
   ),
@@ -218,7 +218,7 @@ final dummyProducts = [
     originalPrice: 30.00,
     isSale: true,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPSweatshirt-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/sweatshirt.png',
     description: 'Now on sale!',
     category: 'Sweatshirt',
   ),

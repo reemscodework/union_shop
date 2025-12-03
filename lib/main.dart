@@ -214,21 +214,21 @@ class HomeScreen extends StatelessWidget {
                           title: 'Uop Hoodie',
                           price: '£35.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'assets/images/hoodie_black.png',
                           productNumber: 1,
                         ),
                         ProductCard(
                           title: 'Uop T-Shirt',
                           price: '£15.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'assets/images/tshirt.png',
                           productNumber: 2,
                         ),
                         ProductCard(
                           title: 'Uop Water Bottle',
                           price: '£12.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'assets/images/waterbottle.png',
                           productNumber: 3,
                         ),
                         ProductCard(

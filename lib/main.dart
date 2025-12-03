@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:union_shop/about_us.dart';
 import 'package:union_shop/all_collections.dart';
-import 'package:union_shop/autume_page.dart';
+import 'package:union_shop/collections/autume_page.dart';
 import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/cart_provider.dart';
 import 'package:union_shop/common_drawer.dart';
 import 'package:union_shop/footer.dart';
 import 'package:union_shop/header.dart';
 import 'package:union_shop/login_page.dart';
-import 'package:union_shop/print_shack_page_1.dart';
+import 'package:union_shop/personalize_product.dart';
 import 'package:union_shop/product_card.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/sale_page.dart';
 import 'package:union_shop/search_page.dart';
-import 'package:union_shop/collection_page.dart';
+import 'package:union_shop/collections/collection_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -45,7 +45,7 @@ class UnionShopApp extends StatelessWidget {
           '/autume': (context) => const AutumnPage(),
           '/collections': (context) => const CollectionPage(),
           '/all_collections': (context) => const AllCollectionsPage(),
-          '/print_shack_page_1': (context) => const PrintShackPage1(),
+          '/personalize_product': (context) => const PersonalizeProductPage(),
         },
         onGenerateRoute: (settings) {
           if (settings.name != null && settings.name!.startsWith('/product/')) {

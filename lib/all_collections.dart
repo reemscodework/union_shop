@@ -34,12 +34,6 @@ class AllCollectionsPage extends StatelessWidget {
                 ),
                 _buildCollectionCard(
                   context,
-                  'Gifts & Souvenirs',
-                  'assets/images/gifts.png',
-                  '/collections',
-                ),
-                _buildCollectionCard(
-                  context,
                   'Graduation',
                   'assets/images/graduation.png',
                   '/graduation',
@@ -54,7 +48,7 @@ class AllCollectionsPage extends StatelessWidget {
                   context,
                   'Personalize',
                   'assets/images/personalize.png',
-                  '/collections',
+                  '/personalize_product',
                 ),
                 _buildCollectionCard(
                   context,
@@ -106,6 +100,7 @@ class AllCollectionsPage extends StatelessWidget {
               child: Image.network(
                 imageUrl,
                 fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),
               ),
             ),
             Padding(

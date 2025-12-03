@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
-import 'package:union_shop/autume_page.dart';
+import 'package:union_shop/collections/autume_page.dart';
 import 'package:union_shop/dummy_products.dart';
 import 'package:union_shop/product_card.dart';
 

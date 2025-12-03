@@ -235,14 +235,14 @@ class HomeScreen extends StatelessWidget {
                           title: 'Uop Beanie',
                           price: '£10.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'assets/images/beanie.png',
                           productNumber: 4,
                         ),
                          ProductCard(
                           title: 'Uop Mug',
                           price: '£8.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'assets/images/mug.png',
                           productNumber: 5,
                         ),
                       ],

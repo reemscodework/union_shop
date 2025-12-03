@@ -66,6 +66,19 @@ class _ProductPageState extends State<ProductPage> {
                 Navigator.pushNamed(context, '/about');
               },
             ),
+            ExpansionTile(
+              title: const Text('Print shack'),
+              children: [
+                ListTile(
+                  title: const Text('about'),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: const Text('Personalize'),
+                  onTap: () {},
+                ),
+              ],
+            ),
           ],
         ),
       ),

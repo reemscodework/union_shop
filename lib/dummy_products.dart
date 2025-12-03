@@ -21,7 +21,7 @@ final dummyProducts = [
     title: 'UoP T-Shirt',
     price: 15.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPT-Shirt-Black-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/tshirt.png',
     description: 'A comfortable and stylish t-shirt with the University of Portsmouth logo.',
     category: 'T-Shirt',
   ),
@@ -30,7 +30,7 @@ final dummyProducts = [
     title: 'UoP Water Bottle',
     price: 12.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPWaterBottle-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/waterbottle.png',
     description: 'Stay hydrated with this reusable University of Portsmouth water bottle.',
     category: 'Accessory',
   ),
@@ -39,7 +39,7 @@ final dummyProducts = [
     title: 'UoP Beanie',
     price: 10.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPBeanie-Black-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/beanie.png',
     description: 'Keep your head warm with this stylish University of Portsmouth beanie.',
     category: 'Accessory',
   ),
@@ -48,7 +48,7 @@ final dummyProducts = [
     title: 'UoP Mug',
     price: 8.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPMug-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/mug.png',
     description: 'Enjoy your morning coffee with this University of Portsmouth mug.',
     category: 'Accessory',
   ),
@@ -66,7 +66,7 @@ final dummyProducts = [
     title: 'UoP Scarf',
     price: 18.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPScarf-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/scarf.png',
     description: 'Stay warm and show your university pride with this soft University of Portsmouth scarf.',
     category: 'Accessory',
   ),
@@ -102,7 +102,7 @@ final dummyProducts = [
     title: 'Pen',
     price: 2.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPPen-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/pen.png',
     description: 'A sleek pen with the UoP logo.',
     category: 'Accessory',
   ),
@@ -111,7 +111,7 @@ final dummyProducts = [
     title: 'Sweatshirts',
     price: 30.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPSweatshirt-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/sweatshirt.png',
     description: 'A cozy sweatshirt to keep you warm.',
     category: 'Sweatshirt',
   ),
@@ -120,7 +120,7 @@ final dummyProducts = [
     title: 'Notepad',
     price: 4.00,
     imageUrl:
-        'https://shop.upsu.net/cdn/shop/files/UOPNotepad-Front_1024x1024@2x.jpg?v=1752229871',
+        'assets/images/notebook_grey.png',
     description: 'A handy notepad for your notes and doodles.',
     category: 'Accessory',
   ),
@@ -147,7 +147,7 @@ final dummyProducts = [
     title: 'Graduation Hoodies',
     price: 40.00,
     imageUrl:
-        'assets/images/hoodie_black.png',
+        'assets/images/hoodie_green.png',
     description: 'A special hoodie to commemorate your graduation.',
     category: 'Hoodie',
   ),

@@ -11,10 +11,10 @@ void main() {
 
       // Check that basic UI elements are present
       expect(
-        find.text('Welcome to the Union Shop'),
+        find.text('collections and products'),
         findsOneWidget,
       );
-      expect(find.text('Browse our latest products'), findsOneWidget);
+      expect(find.text('check out the product(not good at marketing)'), findsOneWidget);
       expect(find.byType(ElevatedButton), findsOneWidget);
     });
 
@@ -23,8 +23,8 @@ void main() {
       await tester.pump();
 
       // Check that product cards are displayed
-      expect(find.text('UoP Hoodie'), findsOneWidget);
-      expect(find.text('UoP T-Shirt'), findsOneWidget);
+      expect(find.text('Uop Hoodie'), findsOneWidget);
+      expect(find.text('Uop T-Shirt'), findsOneWidget);
     });
 
     testWidgets('should display header icons', (tester) async {

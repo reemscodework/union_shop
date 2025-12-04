@@ -18,7 +18,12 @@ import 'package:union_shop/search_page.dart';
 import 'package:union_shop/collections/collection_page.dart';
 
 void main() {
-  runApp(const UnionShopApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CartProvider(),
+      child: const UnionShopApp(),
+    ),
+  );
 }
 
 class UnionShopApp extends StatelessWidget {
@@ -26,50 +31,44 @@ class UnionShopApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CartProvider(),
-      child: MaterialApp(
-        title: 'Union Shop',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
-        ),
-        home: const HomeScreen(),
-        initialRoute: '/',
-        routes: {
-          '/about': (context) => const AboutUsPage(),
-          '/cart': (context) => const CartPage(),
-          '/login': (context) => const LoginPage(),
-          '/search': (context) => const SearchPage(),
-          '/sale': (context) => const SalePage(),
-          '/autume': (context) => const AutumnPage(),
-          '/collections': (context) => const CollectionPage(),
-          '/all_collections': (context) => const AllCollectionsPage(),
-          '/personalize_product': (context) => const PersonalizeProductPage(),
-          '/winter_collection': (context) => const CollectionPage(collectionName: 'Winter Favourites'),
-          '/summer_collection': (context) => const CollectionPage(collectionName: 'Summer Favourites'),
-          '/merchandise_collection': (context) => const CollectionPage(collectionName: 'Merchandise'),
-          '/clothing_collection': (context) => const CollectionPage(collectionName: 'Clothing'),
-          '/graduation_collection': (context) => const CollectionPage(collectionName: 'Graduation'),
-
-
-
-        },
-        onGenerateRoute: (settings) {
-          if (settings.name != null && settings.name!.startsWith('/product/')) {
-            final idString = settings.name!.split('/').last;
-            final id = int.tryParse(idString);
-            if (id != null) {
-              return MaterialPageRoute(
-                builder: (context) {
-                  return ProductPage(productId: id);
-                },
-              );
-            }
-          }
-          return null;
-        },
+    return MaterialApp(
+      title: 'Union Shop',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
+      home: const HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/about': (context) => const AboutUsPage(),
+        '/cart': (context) => const CartPage(),
+        '/login': (context) => const LoginPage(),
+        '/search': (context) => const SearchPage(),
+        '/sale': (context) => const SalePage(),
+        '/autume': (context) => const AutumnPage(),
+        '/collections': (context) => const CollectionPage(),
+        '/all_collections': (context) => const AllCollectionsPage(),
+        '/personalize_product': (context) => const PersonalizeProductPage(),
+        '/winter_collection': (context) => const CollectionPage(collectionName: 'Winter Favourites'),
+        '/summer_collection': (context) => const CollectionPage(collectionName: 'Summer Favourites'),
+        '/merchandise_collection': (context) => const CollectionPage(collectionName: 'Merchandise'),
+        '/clothing_collection': (context) => const CollectionPage(collectionName: 'Clothing'),
+        '/graduation_collection': (context) => const CollectionPage(collectionName: 'Graduation'),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name != null && settings.name!.startsWith('/product/')) {
+          final idString = settings.name!.split('/').last;
+          final id = int.tryParse(idString);
+          if (id != null) {
+            return MaterialPageRoute(
+              builder: (context) {
+                return ProductPage(productId: id);
+              },
+            );
+          }
+        }
+        return null;
+      },
     );
   }
 }

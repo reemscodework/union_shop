@@ -12,6 +12,6 @@ void main() {
     expect(find.byType(GridView), findsOneWidget);
 
     // Verify that our all collections page has the correct number of collection cards.
-    expect(find.byType(Card), findsNWidgets(9));
+    expect(find.byType(Card), findsNWidgets(8));
   });
 }

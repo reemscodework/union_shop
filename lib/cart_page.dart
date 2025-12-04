@@ -54,6 +54,7 @@ class CartPage extends StatelessWidget {
         child: Column(
           children: [
             const Header(),
+            const Text('Cart', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             cart.items.isEmpty
                 ? const Center(
                     child: Padding(

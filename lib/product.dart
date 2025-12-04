@@ -7,6 +7,7 @@ class Product {
   final double? originalPrice;
   final bool isSale;
   final String category;
+  final String? collection;
   final Map<String, String>? colors;
 
   const Product({
@@ -18,6 +19,7 @@ class Product {
     this.originalPrice,
     this.isSale = false,
     required this.category,
+    this.collection,
     this.colors,
   });
 }

@@ -9,6 +9,7 @@ final dummyProducts = [
         'assets/images/hoodie_black.png',
     description: 'Classic University of Portsmouth hoodie. Perfect for staying warm on campus.',
     category: 'Hoodie',
+    collection: 'Clothing',
     colors: {
       'Black': 'assets/images/hoodie_black.png',
       'Purple': 'assets/images/hoodie_purple.png',
@@ -24,6 +25,7 @@ final dummyProducts = [
         'assets/images/tshirt.png',
     description: 'A comfortable and stylish t-shirt with the University of Portsmouth logo.',
     category: 'T-Shirt',
+    collection: 'Clothing',
   ),
   const Product(
     id: 3,
@@ -114,6 +116,7 @@ final dummyProducts = [
         'assets/images/sweatshirt.png',
     description: 'A cozy sweatshirt to keep you warm.',
     category: 'Sweatshirt',
+    collection: 'Clothing',
   ),
   const Product(
     id: 16,
@@ -150,6 +153,7 @@ final dummyProducts = [
         'assets/images/hoodie_green.png',
     description: 'A special hoodie to commemorate your graduation.',
     category: 'Hoodie',
+    collection: 'Clothing',
   ),
   const Product(
     id: 21,
@@ -179,6 +183,7 @@ final dummyProducts = [
         'assets/images/hoodie_black.png',
     description: 'Now on sale!',
     category: 'Hoodie',
+    collection: 'Clothing',
   ),
   const Product(
     id: 7,
@@ -190,6 +195,7 @@ final dummyProducts = [
         'assets/images/tshirt.png',
     description: 'Now on sale!',
     category: 'T-Shirt',
+    collection: 'Clothing',
   ),
   const Product(
     id: 8,
@@ -212,6 +218,7 @@ final dummyProducts = [
         'assets/images/sweatshirt.png',
     description: 'Now on sale!',
     category: 'Sweatshirt',
+    collection: 'Clothing',
   ),
 ];
 

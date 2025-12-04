@@ -46,6 +46,14 @@ class UnionShopApp extends StatelessWidget {
           '/collections': (context) => const CollectionPage(),
           '/all_collections': (context) => const AllCollectionsPage(),
           '/personalize_product': (context) => const PersonalizeProductPage(),
+          '/winter_collection': (context) => const CollectionPage(collectionName: 'Winter Favourites'),
+          '/summer_collection': (context) => const CollectionPage(collectionName: 'Summer Favourites'),
+          '/merchandise_collection': (context) => const CollectionPage(collectionName: 'Merchandise'),
+          '/clothing_collection': (context) => const CollectionPage(collectionName: 'Clothing'),
+          '/graduation_collection': (context) => const CollectionPage(collectionName: 'Graduation'),
+
+
+
         },
         onGenerateRoute: (settings) {
           if (settings.name != null && settings.name!.startsWith('/product/')) {

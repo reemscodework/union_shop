@@ -63,45 +63,33 @@ class CommonDrawer extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: const Text('UoP Essentials'),
-                onTap: () {
-                  Navigator.pushNamed(context, '/collections');
-                },
-              ),
-              ListTile(
-                title: const Text('Gifts & Souvenirs'),
-                onTap: () {
-                  Navigator.pushNamed(context, '/collections');
-                },
-              ),
-              ListTile(
                 title: const Text('Graduation'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/graduation');
+                  Navigator.pushNamed(context, '/graduation_collection');
                 },
               ),
               ListTile(
                 title: const Text('Summer Favourites'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/collections');
+                  Navigator.pushNamed(context, '/summer_collection');
                 },
               ),
               ListTile(
                 title: const Text('Winter Favourites'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/collections');
+                  Navigator.pushNamed(context, '/winter_collection');
                 },
               ),
               ListTile(
                 title: const Text('Merchandise'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/merchandise');
+                  Navigator.pushNamed(context, '/merchandise_collection');
                 },
               ),
               ListTile(
                 title: const Text('Clothing'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/clothing');
+                  Navigator.pushNamed(context, '/clothing_collection');
                 },
               ),
             ],

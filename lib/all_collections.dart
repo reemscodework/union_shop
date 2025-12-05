@@ -66,7 +66,7 @@ class AllCollectionsPage extends StatelessWidget {
                   context,
                   'Clothing',
                   'assets/images/clothing.png',
-                  '/clothing_collectio',
+                  '/clothing_collection',
                 ),
               ],
             ),

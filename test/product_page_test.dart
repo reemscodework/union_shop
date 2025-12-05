@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:union_shop/cart_provider.dart';
+import 'package:union_shop/dummy_products.dart';
 import 'package:union_shop/product_page.dart';
 
 void main() {
@@ -14,11 +15,15 @@ void main() {
       ),
     );
 
-    // Verify that our product page has a title.
-    expect(find.text('Product Details'), findsOneWidget);
+    // Verify that our product page has the correct title.
+    expect(find.text(dummyProducts.first.title), findsOneWidget);
+
+    // Scroll the 'ADD TO CART' button into view.
+    await tester.ensureVisible(find.text('ADD TO CART'));
+    await tester.pumpAndSettle();
 
     // Tap the add to cart button and verify that the cart item count increases.
-    await tester.tap(find.byIcon(Icons.add_shopping_cart));
+    await tester.tap(find.text('ADD TO CART'));
     await tester.pump();
 
     // Verify that the cart item count is 1.

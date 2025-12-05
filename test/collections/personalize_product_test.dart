@@ -8,6 +8,6 @@ void main() {
     await tester.pumpWidget(const MaterialApp(home: PersonalizeProductPage()));
 
     // Verify that our personalize product page has a title.
-    expect(find.text('Personalise Your Product'), findsOneWidget);
+    expect(find.text('Personalize Product'), findsOneWidget);
   });
 }

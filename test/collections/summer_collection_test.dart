@@ -7,7 +7,7 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MaterialApp(home: CollectionPage(collectionName: 'Summer Favourites')));
 
-    // Verify that our summer collection page has a title.
-    expect(find.text('Summer Favourites'), findsOneWidget);
+    // Verify that our summer collection page has a title in the app bar.
+    expect(find.descendant(of: find.byType(AppBar), matching: find.text('Summer Favourites')), findsOneWidget);
   });
 }

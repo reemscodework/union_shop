@@ -44,12 +44,16 @@ class CommonDrawer extends StatelessWidget {
               title: const Text('Print shack'),
               children: [
                 ListTile(
-                  title: const Text('about'),
-                  onTap: () {},
+                  title: const Text('About'),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/about');
+                  },
                 ),
                 ListTile(
                   title: const Text('Personalize'),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/print-shack');
+                  },
                 ),
               ],
             ),

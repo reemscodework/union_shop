@@ -1,7 +1,6 @@
 // lib/collection_page.dart
 import 'package:flutter/material.dart';
 import 'package:union_shop/dummy_products.dart';
-import 'package:union_shop/product_card.dart';
 import 'package:union_shop/product.dart';
 import 'package:union_shop/footer.dart';
 

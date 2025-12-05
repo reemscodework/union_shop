@@ -42,7 +42,7 @@ class AllCollectionsPage extends StatelessWidget {
                   context,
                   'Personalize',
                   'assets/images/personalize.png',
-                  '/personalize_product',
+                  '/print-shack',
                 ),
                 _buildCollectionCard(
                   context,

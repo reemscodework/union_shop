@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:union_shop/about_us.dart';
-import 'package:union_shop/all_collections.dart';
+import 'package:union_shop/collections/all_collections.dart';
 import 'package:union_shop/collections/autume_page.dart';
 import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/cart_provider.dart';
@@ -10,7 +10,7 @@ import 'package:union_shop/common_drawer.dart';
 import 'package:union_shop/footer.dart';
 import 'package:union_shop/header.dart';
 import 'package:union_shop/login_page.dart';
-import 'package:union_shop/personalize_product.dart';
+import 'package:union_shop/print_shack_page.dart';
 import 'package:union_shop/product_card.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/sale_page.dart';
@@ -48,7 +48,7 @@ class UnionShopApp extends StatelessWidget {
         '/autume': (context) => const AutumnPage(),
         '/collections': (context) => const CollectionPage(),
         '/all_collections': (context) => const AllCollectionsPage(),
-        '/personalize_product': (context) => const PersonalizeProductPage(),
+        '/print-shack':(context) => const PrintShackPage(),
         '/winter_collection': (context) => const CollectionPage(collectionName: 'Winter Favourites'),
         '/summer_collection': (context) => const CollectionPage(collectionName: 'Summer Favourites'),
         '/merchandise_collection': (context) => const CollectionPage(collectionName: 'Merchandise'),

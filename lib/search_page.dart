@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:union_shop/common_drawer.dart';
 import 'package:union_shop/product.dart';
 import 'package:union_shop/product_card.dart';
 import 'package:union_shop/dummy_products.dart';
@@ -47,6 +48,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: const CommonDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [

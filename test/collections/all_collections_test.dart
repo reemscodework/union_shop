@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
-import 'package:union_shop/all_collections.dart';
+import 'package:union_shop/collections/all_collections.dart';
 
 void main() {
   testWidgets('All collections page has a grid of collection cards', (WidgetTester tester) async {
